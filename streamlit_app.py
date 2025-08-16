@@ -71,4 +71,3 @@ with tabs[3]:
     ax.xaxis.set_major_formatter(lambda x, _: f"{int(x)}")
     st.pyplot(fig)
 
-streamlit run app.py
