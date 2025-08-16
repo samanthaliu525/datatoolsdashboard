@@ -34,10 +34,8 @@ st.dataframe(top_emittors.head())
 
 st.subheader("Animated Emissions by Country")
 
-result = st.button("United States")
-
-if result:
-    st.image(CO2_plot_url)
+if st.button('Say Hello'):
+    st.write('Hello')
     
 import plotly.express as px
 
