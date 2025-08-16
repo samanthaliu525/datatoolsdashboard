@@ -17,7 +17,8 @@ st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
 
 top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
 top_emittors = pd.read_csv(top_emittors_url)
-top_emittors["Emissions"]= pd.to_numeric(top_emittors["Emissions"], errors="coerce")
+top_emittors['Emissions'] = pd.to_numeric(top_emittors['Emissions'].str.replace(',', ''), errors='coerce')
+top_emittors['Year'] = pd.to_numeric(top_emittors['Year'], errors='coerce')
 
 st.title('Top 10 CO₂ Emissions Dashboard')
 st.header('Interactive Line Chart with Animation')
