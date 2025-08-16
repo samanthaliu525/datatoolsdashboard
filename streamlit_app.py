@@ -3,8 +3,8 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-pip install plotly
-import plotly.express as px
+
+
 
 
 st.title("Data Tools Dashboard")
@@ -21,6 +21,8 @@ top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsda
 top_emittors = pd.read_csv(top_emittors_url)
 
 st.dataframe(top_emittors.head())
+
+import plotly.express as px
 
 fig = px.line(
     top_emittors,
