@@ -35,16 +35,16 @@ else:
     st.info("Data does not contain a 'Year' column for this example.")
 
 
-# Filter the DataFrame based on the selected year range
-CO2_visuals_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/refs/heads/main/CO2_visuals.csv"
+
+CO2_visuals_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/CO2_visuals.csv"
 CO2_visuals = pd.read_csv(CO2_visuals_url)
 
 # Create the Altair line chart
 fig_co2 = alt.Chart(CO2_visuals).mark_line().encode(
     x='Year',
-    y='Emissions',
+    y='Value',
     color=alt.Color('Country', legend=alt.Legend(title="Country")),
-    tooltip=['Country', 'Year', 'Emissions']
+    tooltip=['Country', 'Year', 'Value']
 ).properties(
     title='Country CO₂ Emissions per Year'
 )
