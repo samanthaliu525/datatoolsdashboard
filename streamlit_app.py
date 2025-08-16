@@ -14,20 +14,30 @@ st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
 
 
 
-CO2_visuals_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/CO2_visuals.csv"
-CO2_visuals = pd.read_csv(CO2_visuals_url)
+top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
+top_emittors = pd.read_csv(top_emittors_url)
 
-st.dataframe(CO2_visuals.head())
+st.dataframe(top_emittors.head())
 
-# Create the Altair line chart
-fig_co2 = alt.Chart(CO2_visuals).mark_line().encode(
-    x='Year',
-    y='Value',
-    color=alt.Color('Country', legend=alt.Legend(title="Country")),
-    tooltip=['Country', 'Year', 'Value']
-).properties(
-    title='Country CO₂ Emissions per Year'
+fig = px.line(
+    top_emittors,
+    x="Year",
+    y="Emissions",
+    color="Country",
+    animation_frame="Year",  # This is the magic line that creates the animation
+    animation_group="Country",
+    title="Country CO₂ Emissions per Year",
+    labels={"Value": "Emissions (Metric Tonnes)", "Year": "Year"},
+    range_x=[filtered_df['Year'].min(), filtered_df['Year'].max()]
 )
 
-# Display the Altair chart in Streamlit
-st.altair_chart(fig_co2, use_container_width=True)
+# Customize the layout for better readability
+fig.update_layout(
+    xaxis=dict(autorange=False, range=[min(filtered_df['Year']), max(filtered_df['Year'])]),
+    title_font_size=20,
+    xaxis_title_font_size=14,
+    yaxis_title_font_size=14
+)
+
+# Display the animated Plotly chart in Streamlit
+st.plotly_chart(fig, use_container_width=True)
