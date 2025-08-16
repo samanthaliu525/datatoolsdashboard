@@ -68,7 +68,6 @@ CO2_temp_China_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/da
 
 result = st.button("United States")
 
-st.image(result)
 if result:
     st.image(CO2_temp_US_scaled_url)
 
