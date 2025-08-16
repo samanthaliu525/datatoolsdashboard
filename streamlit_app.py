@@ -66,7 +66,12 @@ CO2_temp_US_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datat
 CO2_temp_US_facet_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba9119887/CO2_temp_US_facet.png"
 CO2_temp_China_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/37b578aaecd79f967b66478f6a56ffe878e217ee/CO2_temp_China_scaled.png"
 
+if st.button('United States'):
+    st.image(CO2_temp_US_scaled_url)
 
+if st.button('China'):
+    st.image(CO2_temp_China_scaled_url)
+    
 # Create buttons to choose the plot to display
 col1, col2 = st.columns(2)
 with col1:
