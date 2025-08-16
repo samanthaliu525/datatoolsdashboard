@@ -34,77 +34,37 @@ def load_data():
         return data
 
 
-@st.cache_data
-def aggregate_data(df):
-    """
-    Aggregates the data to show total emissions per year.
-    This mimics the functionality of your 'CO2_visuals_sum' DataFrame.
-    """
-    # Sum up the 'Emissions' for each 'Year'.
-    # For this example, we'll assume the loaded data has 'Country' and 'CO2_Emissions'.
-    # We will create a new 'Emissions' column for clarity and sum by 'Year'.
-    df['Emissions'] = df['CO2_Emissions'].astype(float)
-    df_agg = df.groupby('Year')['Emissions'].sum().reset_index()
-    df_agg['Country'] = 'World'
-    return df_agg
-
-
 # Load the data
 df = load_data()
-df_aggregated = aggregate_data(df)
 
 
 # --- Part 2: Building the Streamlit Dashboard UI ---
 
 # Add a title and an introductory header
 st.title('CO2 Emissions Dashboard')
-st.header('Interactive Data Visualization with Plotly')
+st.header('Data Visualization from a Loaded Dataset')
 
 # Display the raw data as a table
 st.subheader('Raw Data')
 # This is the correct way to display a DataFrame in Streamlit.
 st.dataframe(df.head())
 
-# --- Part 3: Creating an Interactive Plot with Plotly ---
-# This section converts your lets_plot chart to a fully interactive Plotly chart.
-# We'll also add a widget so you can filter by country.
+# --- Part 3: Displaying a Pre-rendered PNG Graph ---
+# This section shows how to display a static image file (like a PNG)
+# that you have uploaded to your GitHub repository.
 
-st.subheader("Interactive CO₂ Emissions Line Chart")
+st.subheader("Static CO₂ Emissions Line Chart")
 
-# Create a list of unique countries, and add 'World' to the top
-countries = sorted(df['Country'].unique().tolist())
-countries.insert(0, 'World')
-
-# Create a selectbox for the user to choose a country
-selected_country = st.selectbox(
-    'Select a Country to view emissions:',
-    options=countries
-)
-
-# Filter the data based on the user's selection
-if selected_country == 'World':
-    filtered_df = df_aggregated
-else:
-    filtered_df = df[df['Country'] == selected_country]
-
-# Now, create the Plotly express line chart with the filtered data
-fig = px.line(
-    filtered_df,
-    x="Year",
-    y="Emissions",
-    title=f"CO₂ Emissions for {selected_country} over Time",
-    labels={"Emissions": "Emissions (Metric Tonnes)", "Year": "Year"},
-)
-
-# Customize the chart layout to match the lets_plot style
-fig.update_layout(
-    title_font_size=20,
-    xaxis_title_font_size=14,
-    yaxis_title_font_size=14,
-)
-
-# Display the interactive Plotly chart in Streamlit
-st.plotly_chart(fig, use_container_width=True)
+# Define the raw URL of your PNG file on GitHub.
+# You need to get this URL by going to the image on GitHub, clicking 'Raw', and copying the address.
+# I've used a placeholder URL here. Replace this with your actual image URL.
+CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard//blob/85d69e7e6c2771f7ea331a477029062ec754d08d/CO2_world.png'
+try:
+    # Use st.image() to display the image from the URL.
+    st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
+except Exception as e:
+    st.error(f"Error loading image from GitHub: {e}")
+    st.info("Please make sure the image URL is correct.")
 
 # --- Part 4: A simple interactive element for a different plot
 st.subheader('Bar Chart by Country and Year')
