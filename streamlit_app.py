@@ -19,6 +19,7 @@ st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
 
 top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
 top_emittors = pd.read_csv(top_emittors_url)
+top_emittors = top_emittors.dropna(subset=['Year', 'Emissions', 'Country'])
 
 st.dataframe(top_emittors.head())
 
