@@ -14,6 +14,10 @@ st.subheader("Static World CO₂ Emissions Line Chart")
 CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/85d69e7e6c2771f7ea331a477029062ec754d08d/CO2_world.png'
 st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
 
+
+top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
+top_emittors = pd.read_csv(top_emittors_url)
+
 st.title('Top 10 CO₂ Emissions Dashboard')
 st.header('Interactive Line Chart with Animation')
 
@@ -60,9 +64,6 @@ fig.update_layout(
 st.plotly_chart(fig, use_container_width=True)
 
 
-
-top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
-top_emittors = pd.read_csv(top_emittors_url)
 top_emittors = top_emittors.dropna(subset=['Year', 'Emissions', 'Country'])
 
 st.dataframe(top_emittors.head())
