@@ -67,6 +67,8 @@ CO2_temp_US_facet_url = "https://raw.githubusercontent.com/samanthaliu525/datato
 CO2_temp_China_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/37b578aaecd79f967b66478f6a56ffe878e217ee/CO2_temp_China_scaled.png"
 
 if st.button('United States'):
+    st.write("United")
+    
     st.image(CO2_temp_US_scaled_url)
 
 if st.button('China'):
