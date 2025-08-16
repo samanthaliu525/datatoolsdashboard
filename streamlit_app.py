@@ -3,7 +3,6 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.express as px
 
 # --- Part 1: How to get your data into the app ---
 # This is the most important step. We'll load the data from your GitHub
