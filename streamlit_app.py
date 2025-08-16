@@ -58,7 +58,7 @@ st.subheader("Static CO₂ Emissions Line Chart")
 # Define the raw URL of your PNG file on GitHub.
 # You need to get this URL by going to the image on GitHub, clicking 'Raw', and copying the address.
 # I've used a placeholder URL here. Replace this with your actual image URL.
-CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard//blob/85d69e7e6c2771f7ea331a477029062ec754d08d/CO2_world.png'
+CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/85d69e7e6c2771f7ea331a477029062ec754d08d/CO2_world.png'
 try:
     # Use st.image() to display the image from the URL.
     st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
