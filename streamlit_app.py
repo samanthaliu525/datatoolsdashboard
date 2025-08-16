@@ -59,6 +59,9 @@ fig.update_layout(
 # Display the animated Plotly chart in Streamlit
 st.plotly_chart(fig, use_container_width=True)
 
+st.subheader("Animated Emissions by Country")
+
+
 st.subheader("Emissions by Country")
 
 result = st.button("United States")
