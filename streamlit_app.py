@@ -39,6 +39,8 @@ else:
 CO2_visuals_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/CO2_visuals.csv"
 CO2_visuals = pd.read_csv(CO2_visuals_url)
 
+st.dataframe(CO2_visuals.head())
+
 # Create the Altair line chart
 fig_co2 = alt.Chart(CO2_visuals).mark_line().encode(
     x='Year',
