@@ -33,7 +33,7 @@ fig = px.line(
     animation_frame="Year",  # This is the magic line that creates the animation
     animation_group="Country",
     title="Country CO₂ Emissions per Year",
-    labels={"Value": "Emissions (Metric Tonnes)", "Year": "Year"},
+    labels={"Emissions": "Emissions (Metric Tonnes)", "Year": "Year"},
     range_x=[top_emittors['Year'].min(), top_emittors['Year'].max()]
 )
 
