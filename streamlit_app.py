@@ -59,10 +59,15 @@ fig.update_layout(
 # Display the animated Plotly chart in Streamlit
 st.plotly_chart(fig, use_container_width=True)
 
-CO2_temp_US_scaled_url="https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba914119887/CO2_temp_US_scaled.png"
-CO2_temp_US_facet_url= "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba9119887/CO2_temp_US_facet.png"
+st.subheader("Emissions by Country")
+
+
+CO2_temp_US_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba914119887/CO2_temp_US_scaled.png"
+CO2_temp_US_facet_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba9119887/CO2_temp_US_facet.png"
 CO2_temp_China_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/37b578aaecd79f967b66478f6a56ffe878e217ee/CO2_temp_China_scaled.png"
 
+
+# Create buttons to choose the plot to display
 col1, col2 = st.columns(2)
 with col1:
     show_us = st.button("United States")
@@ -71,7 +76,7 @@ with col2:
 
 # Use a state variable to track which button was clicked last
 if 'last_clicked' not in st.session_state:
-    st.session_state.last_clicked = 'all'
+    st.session_state.last_clicked = 'us'
 
 if show_us:
     st.session_state.last_clicked = 'us'
@@ -83,3 +88,5 @@ if st.session_state.last_clicked == 'us':
     st.image(CO2_temp_US_scaled_url, caption="United States")
 elif st.session_state.last_clicked == 'china':
     st.image(CO2_temp_China_scaled_url, caption="China")
+else: # A default plot if no button has been clicked yet.
+    st.image(CO2_temp_US_scaled_url, caption="United States")
