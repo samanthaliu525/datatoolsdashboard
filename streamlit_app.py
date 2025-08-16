@@ -45,7 +45,6 @@ df = px.data.iris()
 pxfig = px.scatter(df, x="sepal_width",
 y="sepal_length", color="species",
 size= 'petal length',
-hover_data=[’petal_width’])
 st.plotly_chart(pxfig, use_container_width=True)
 
 import plotly.express as px
