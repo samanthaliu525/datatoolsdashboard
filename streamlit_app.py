@@ -41,6 +41,15 @@ filtered_df['Year'] = filtered_df['Year'].astype(int)
 
 import plotly.express as px
 
+df = px.data.iris()
+pxfig = px.scatter(df, x="sepal_width",
+y="sepal_length", color="species",
+size=’petal_length’,
+hover_data=[’petal_width’])
+st.plotly_chart(pxfig, use_container_width=True)
+
+import plotly.express as px
+
 # Create the animated Plotly chart
 fig = px.line(
     filtered_df,
