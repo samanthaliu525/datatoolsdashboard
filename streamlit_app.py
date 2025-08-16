@@ -32,46 +32,6 @@ st.dataframe(top_emittors.head())
 
 st.subheader("Animated Emissions by Country")
 
-# Filter out any non-numeric or non-country data if necessary
-# We'll save the cleaned data to a new variable called filtered_df
-filtered_df = top_emittors.dropna(subset=['Year', 'Emissions', 'Country'])
-
-# Plotly Express needs a numeric type for the animation_frame
-filtered_df['Year'] = filtered_df['Year'].astype(int)
-
-
-import plotly.express as px
-
-# Create the animated Plotly chart
-fig = px.line(
-    filtered_df,
-    x="Year",
-    y="Emissions",
-    color="Country",
-    animation_frame="Year",  # This is the magic line that creates the animation
-    animation_group="Country",
-    title="Country CO₂ Emissions per Year",
-    labels={"Emissions": "Emissions (Metric Tonnes)", "Year": "Year"},
-    range_x=[filtered_df['Year'].min(), filtered_df['Year'].max()]
-)
-
-# Customize the layout for better readability
-fig.update_layout(
-    xaxis=dict(autorange=False, range=[min(filtered_df['Year']), max(filtered_df['Year'])]),
-    title_font_size=20,
-    xaxis_title_font_size=14,
-    yaxis_title_font_size=14
-)
-
-# Display the animated Plotly chart in Streamlit
-st.plotly_chart(fig, use_container_width=True)
-
-
-top_emittors = top_emittors.dropna(subset=['Year', 'Emissions', 'Country'])
-
-st.dataframe(top_emittors.head())
-
-import streamlit as st
 import plotly.express as px
 
 fig = px.line(
