@@ -22,6 +22,7 @@ top_emittors = pd.read_csv(top_emittors_url)
 
 st.dataframe(top_emittors.head())
 
+pip install plotly
 import plotly.express as px
 
 fig = px.line(
