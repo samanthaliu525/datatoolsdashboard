@@ -39,7 +39,7 @@ fig = px.line(
 
 # Customize the layout for better readability
 fig.update_layout(
-    xaxis=dict(autorange=False, range=[min(filtered_df['Year']), max(filtered_df['Year'])]),
+    xaxis=dict(autorange=False, range=[min(top_emittors['Year']), max(top_emittors['Year'])]),
     title_font_size=20,
     xaxis_title_font_size=14,
     yaxis_title_font_size=14
