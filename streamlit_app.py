@@ -3,7 +3,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import altair as alt
-pip install plotly
 import plotly.express as px
 
 
@@ -31,7 +30,7 @@ fig = px.line(
     animation_group="Country",
     title="Country CO₂ Emissions per Year",
     labels={"Value": "Emissions (Metric Tonnes)", "Year": "Year"},
-    range_x=[filtered_df['Year'].min(), filtered_df['Year'].max()]
+    range_x=[top_emittors['Year'].min(), top_emittors['Year'].max()]
 )
 
 # Customize the layout for better readability
