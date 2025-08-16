@@ -39,6 +39,8 @@ filtered_df = top_emittors.dropna(subset=['Year', 'Emissions', 'Country'])
 # Plotly Express needs a numeric type for the animation_frame
 filtered_df['Year'] = filtered_df['Year'].astype(int)
 
+import plotly.express as px
+
 # Create the animated Plotly chart
 fig = px.line(
     filtered_df,
