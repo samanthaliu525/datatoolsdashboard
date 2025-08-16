@@ -34,6 +34,11 @@ st.dataframe(top_emittors.head())
 
 st.subheader("Animated Emissions by Country")
 
+result = st.button("United States")
+
+if result:
+    st.image(CO2_plot_url)
+    
 import plotly.express as px
 
 fig = px.line(
@@ -64,10 +69,7 @@ st.subheader("Animated Emissions by Country")
 
 st.subheader("Emissions by Country")
 
-result = st.button("United States")
 
-if result:
-    st.image(CO2_plot_url)
 
 CO2_temp_US_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba914119887/CO2_temp_US_scaled.png"
 CO2_temp_US_facet_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba9119887/CO2_temp_US_facet.png"
