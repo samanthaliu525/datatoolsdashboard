@@ -61,15 +61,16 @@ st.plotly_chart(fig, use_container_width=True)
 
 st.subheader("Emissions by Country")
 
+result = st.button("United States")
+
+if result:
+    st.image(CO2_plot_url)
 
 CO2_temp_US_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba914119887/CO2_temp_US_scaled.png"
 CO2_temp_US_facet_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/d3f902e6facd88596ae1367741663ba9119887/CO2_temp_US_facet.png"
 CO2_temp_China_scaled_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/37b578aaecd79f967b66478f6a56ffe878e217ee/CO2_temp_China_scaled.png"
 
-result = st.button("United States")
 
-if result:
-    st.image(CO2_temp_US_scaled_url)
 
 
 if st.button('United States'):
