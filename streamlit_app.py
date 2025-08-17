@@ -18,8 +18,8 @@ CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashbo
 st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
 
 st.subheader("US CO₂ Emissions and Temperature")
-CO2_plot_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/e8a9875fd403e4bf1cd400dc73b59b103884e26d/CO2_temp_US_scaled.png'
-st.image(CO2_plot_url, caption='World CO₂ Emissions per Year')
+CO2_temp_US_scaled_url = 'https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/e8a9875fd403e4bf1cd400dc73b59b103884e26d/CO2_temp_US_scaled.png'
+st.image(CO2_temp_US_scaled_url, caption='World CO₂ Emissions per Year')
 
 top_emittors_url = "https://raw.githubusercontent.com/samanthaliu525/datatoolsdashboard/main/top_10.csv"
 top_emittors = pd.read_csv(top_emittors_url)
