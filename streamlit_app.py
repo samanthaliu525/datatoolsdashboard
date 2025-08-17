@@ -8,7 +8,7 @@ import altair as alt
 
 
 st.title("Data Tools Dashboard")
-st.write("Explore the relationships between and progression of CO₂ Emissions, temperature, GDP per capita, energy use, and number of natural disasters")
+st.write(" the relationships between and progression of CO₂ Emissions, temperature, GDP per capita, energy use, and number of natural disasters")
 
 if st.button('Say Hello'):
     st.write('Hello')
